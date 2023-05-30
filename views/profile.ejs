@@ -1,0 +1,26 @@
+<%- layout('layouts/main.ejs')  %>
+
+<p id="welcome-banner"></p>
+        <div id="productList">
+    
+            <%products.forEach(product => {%>
+
+                <article class="cardBox">
+                    <!-- <figure class="fotoProducto">
+                        <img src="${foto}" alt="">
+                    </figure> -->
+                    <div class="encabezado">
+                        <h4 class="modelo"><%= product.nombre %></h4>
+                    </div>
+                    
+                    <div class="caracteristicas">
+                        <h5 class="tipo"><%= product.descripcion %></h5>
+                        <div class="barra"></div>
+                        <p class="stock">Stock:<%= product.stock %></p>
+                    </div>
+                    <p class="precio">$<%= product.precio %></p>
+                    <button class="btn btn-info btn-block mt4">Agregar a carrito</button>
+                </article>
+
+                <% }) %>
+            </div>

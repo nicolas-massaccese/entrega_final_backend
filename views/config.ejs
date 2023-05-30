@@ -1,0 +1,41 @@
+<%- layout('layouts/main.ejs')  %>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+        <div class="card mt-4 text-center">
+            <div class="card-header ">
+                <h3>Server Config</h3>                    
+            </div>
+            <div class="card-body" >
+                <div class="alert alert-info">
+                    <h5> <strong>DATABASE</strong> </h5>
+                    <p><%= serverConfigs.mongoUri %></>
+                </div>
+                <div class="alert alert-success">
+                    <h5> <strong>JSON WEB TOKEN</strong></h5>
+                    <p><%= serverConfigs.privateKey %></p>
+                </div>
+                <div class="alert alert-danger">
+                    <h5> <strong>TWILIO</strong></h5>
+                    <p><%= serverConfigs.accountSid %></p>
+                    <p><%= serverConfigs.authToken %></p>
+                    <p><%= serverConfigs.number %></p>
+                    <p><%= serverConfigs.whatsappNumber %></p>
+                </div>
+                <div class="alert alert-warning">
+                    <h5> <strong>NODEMAILER</strong></h5>
+                    <p><%= serverConfigs.emailAddress %></p>
+                    <p><%= serverConfigs.emailPassword %></p>
+                    <p><%= serverConfigs.host %></p>
+                </div>
+
+                
+                
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+

@@ -1,0 +1,51 @@
+
+<%- layout('layouts/main.ejs')  %>
+
+<div class="row">    
+    <div class="col-md-4 offset-md-4">
+        <div class="card mt-4 text-center">
+            <div class="card-header">
+                <h3>Signup</h3>                    
+            </div>
+            <div class="card-body">    
+                <div class="container">                
+                    <form action="/signup" method="POST" onsubmit="return validate()" enctype="multipart/form-data">
+                        <% if (signupMessage.length > 0) { %>
+                            <div class="alert alert-danger"><%=signupMessage%></div>
+                        <% } %>
+                        
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="Insert your email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" name="password" placeholder="Insert your password" class="form-control">                    
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" class="form-control" onkeyup="checkPassword(this)" >                    
+                        </div>
+                        <p id="invalidPassword"></p>
+                        <div class="form-group">
+                            <input type="text" name="firstname" placeholder="Insert your name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adress" placeholder="Insert your adress" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="age" placeholder="Insert your age" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Insert your phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="file" name="avatar" id="avatar" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" id="submit" class="btn btn-primary btn-block mt4">Signup</button>
+                        </div>                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
