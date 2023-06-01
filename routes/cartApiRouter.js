@@ -1,19 +1,16 @@
-const express = require('express');
 const Router = require('express');
-const controllers  = require('../controllers');
+const cartControllers  = require('../controllers/cartControllers');
 
 const cartApiRouter = new Router()
 
-cartApiRouter.get('/products', controllers.getProducts);
+cartApiRouter.get('/products-cart', cartControllers.getProductsCart);
 
-cartApiRouter.get('/products-cart', controllers.getProductsCart);
+cartApiRouter.get('/products-cart/sendCartOrder', cartControllers.sendCartOrder);
 
-cartApiRouter.get('/products-cart/sendCartOrder', controllers.sendCartOrder);
+cartApiRouter.post('/products-cart', cartControllers.addProductsCart);
 
-cartApiRouter.post('/products-cart', controllers.addProductsCart);
+cartApiRouter.put('/products-cart/:productId', cartControllers.putProductInCart);
 
-cartApiRouter.put('/products-cart/:productId', controllers.putProduct);
-
-cartApiRouter.delete('/products-cart/:productId', controllers.deleteProduct);
+cartApiRouter.delete('/products-cart/:productId', cartControllers.deleteCartProduct);
 
 module.exports = { cartApiRouter };

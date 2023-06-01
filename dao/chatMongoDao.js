@@ -13,9 +13,10 @@ const { Message } = require('../models/messages');
 const createMessage = async (msg) => {
     let now = obtenerFechaHora();
     const newMsg = { timestamp: now, ...msg };
-    const sortedMessage = await Message.save(newMsg)
+    const sortedMessage = await Message.create(newMsg)
     return sortedMessage;
 };
+
 const readAllMessages = async () => {
     const sortedMessages = await Message.find({})
     return sortedMessages;

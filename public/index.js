@@ -16,6 +16,12 @@ function obtenerFechaHora() {
 };
 
 
+const socket = io();
+
+socket.on('connect', () => {
+    console.log(socket.id);
+    socket.emit('get-chat', '');
+});
 
 function addMessage(e){
     e.preventDefault();
@@ -30,11 +36,16 @@ function addMessage(e){
     socket.emit('newMessage', messageToAdd);
 };
 
-
-const socket = io();
-
-socket.on('connect', () => {
-    console.log(socket.id);
+socket.on('message-added', (data) => {
+    const tabla = document.getElementById('msgList');
+    let newHTML = document.getElementById('msgList').innerHTML;
+    newHTML += `<tr  class="table-info">
+    <th scope="col">${data.email}</th>
+    <th scope="col">${data.type}</th>
+    <th scope="col">${data.date}</th>
+    <th scope="col">${data.message}</th>
+    </tr>`;
+    tabla.innerHTML = newHTML;
 });
 
 
@@ -53,7 +64,6 @@ socket.on('chat', (data) => {
     };
     document.getElementById('msgList').innerHTML = htmlToRender;
 });
-
 
 
 
